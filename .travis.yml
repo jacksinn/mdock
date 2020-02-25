@@ -18,3 +18,17 @@ after_success:
     - docker push jackscode/multi-nginx
     - docker push jackscode/multi-server
     - docker push jackscode/multi-worker
+
+deploy:
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: "docker-react"
+    env: "MultiDocker-env"
+    bucket_name: "elasticbeanstalk-us-east-2-976520447513"
+    bucket_path: "docker-multi"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: $AWS_SECRET_KEY
+
