@@ -20,6 +20,7 @@ after_success:
     - docker push jackscode/multi-worker
 
 deploy:
+    label: "0.0.1"
     edge: true
     provider: elasticbeanstalk
     region: "us-east-2"
